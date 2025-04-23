@@ -1,0 +1,48 @@
+sequenceDiagram
+    participant U as User
+    participant Auth as AuthService
+    participant T as TeacherService
+    participant C as CourseService
+    participant VC as VirtualClassroom
+    participant S as StorageService
+    participant DB as Database
+    participant Cache as Redis
+
+    %% User Authentication Flow
+    U->>Auth: login(credentials)
+    Auth->>DB: validateCredentials
+    DB-->>Auth: userDetails
+    Auth->>Cache: storeSession
+    Auth-->>U: JWT token
+
+    %% Course Creation Flow
+    U->>T: createCourse(courseData)
+    T->>Auth: validateTeacherPermissions
+    Auth-->>T: authorized
+    T->>C: initializeCourse
+    C->>DB: saveCourse
+    C->>S: createCourseStorage
+    C-->>T: courseCreated
+    T-->>U: courseDetails
+
+    %% Virtual Classroom Session
+    U->>VC: startSession(courseId)
+    VC->>Auth: validateAccess
+    Auth-->>VC: authorized
+    VC->>C: getSessionConfig
+    C->>Cache: initializeRealTimeSession
+    VC-->>U: sessionStarted
+
+    %% Content Upload
+    U->>C: uploadContent(file)
+    C->>Auth: checkPermissions
+    Auth-->>C: authorized
+    C->>S: storeFile
+    S->>DB: updateContentMetadata
+    S-->>C: uploadComplete
+    C-->>U: contentURL
+
+    %% Analytics Tracking
+    VC->>DB: logUserActivity
+    DB->>Cache: updateRealTimeMetrics
+    Cache->>DB: persistAnalytics

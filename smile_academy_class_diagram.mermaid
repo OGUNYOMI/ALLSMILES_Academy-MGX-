@@ -1,0 +1,99 @@
+classDiagram
+    class User {
+        +string id
+        +string email
+        +string passwordHash
+        +string role
+        +string firstName
+        +string lastName
+        +DateTime createdAt
+        +DateTime updatedAt
+        +authenticate()
+        +updateProfile()
+    }
+
+    class Teacher {
+        +string userId
+        +string[] subjects
+        +string[] certifications
+        +createCourse()
+        +scheduleLecture()
+        +gradeAssignment()
+    }
+
+    class Student {
+        +string userId
+        +string[] enrolledCourses
+        +Map progress
+        +enrollCourse()
+        +submitAssignment()
+        +joinLecture()
+    }
+
+    class Course {
+        +string id
+        +string name
+        +string description
+        +string teacherId
+        +string[] enrolledStudents
+        +string[] modules
+        +DateTime startDate
+        +DateTime endDate
+        +createModule()
+        +enrollStudent()
+        +generateReport()
+    }
+
+    class Module {
+        +string id
+        +string courseId
+        +string title
+        +string[] resources
+        +string[] assignments
+        +addResource()
+        +addAssignment()
+        +updateContent()
+    }
+
+    class VirtualClassroom {
+        +string id
+        +string courseId
+        +string teacherId
+        +DateTime scheduleTime
+        +string[] attendees
+        +boolean isActive
+        +startSession()
+        +endSession()
+        +recordSession()
+    }
+
+    class Assignment {
+        +string id
+        +string moduleId
+        +string title
+        +DateTime dueDate
+        +Map submissions
+        +createSubmission()
+        +gradeSubmission()
+        +getResults()
+    }
+
+    class Analytics {
+        +string entityId
+        +string type
+        +Map metrics
+        +DateTime timestamp
+        +trackProgress()
+        +generateReport()
+        +calculateMetrics()
+    }
+
+    User <|-- Teacher
+    User <|-- Student
+    Teacher "1" -- "*" Course
+    Course "1" -- "*" Module
+    Course "1" -- "*" VirtualClassroom
+    Module "1" -- "*" Assignment
+    Student "*" -- "*" Course
+    Analytics -- User
+    Analytics -- Course
