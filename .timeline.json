@@ -1,10 +1,32 @@
 {
-  "timeline_index": 3,
-  "planner": {},
+  "timeline_index": 8,
+  "planner": {
+    "Team Leader": {
+      "1": {
+        "task_id": "1",
+        "dependent_task_ids": [],
+        "instruction": "Update the application title from 'Smile Academy' to 'AllSmiles Academy' in the project.",
+        "task_type": "general",
+        "code": "",
+        "result": "",
+        "is_success": false,
+        "is_finished": true,
+        "assignee": "Alex",
+        "start_at": 1745448795.3969953,
+        "end_at": 1745448843.4583392
+      },
+      "current_task_id": "1"
+    }
+  },
   "gallery_last_file": {},
   "timeline_status": {
     "2": 0,
-    "3": 1
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 1,
+    "8": 1
   },
   "preview_servers": {
     "f0b86620-868b-4b1e-a5e6-61a3dbcd1613": {
