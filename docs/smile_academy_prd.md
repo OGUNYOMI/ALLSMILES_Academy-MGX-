@@ -1,4 +1,4 @@
-# Smile Academy Online Learning Platform PRD
+# AllSmiles Academy Online Learning Platform PRD
 
 ## 1. Project Overview
 
