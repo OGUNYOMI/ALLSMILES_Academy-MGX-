@@ -1,21 +1,48 @@
 {
-  "timeline_index": 8,
+  "timeline_index": 12,
   "planner": {
     "Team Leader": {
       "1": {
         "task_id": "1",
         "dependent_task_ids": [],
-        "instruction": "Update the application title from 'Smile Academy' to 'AllSmiles Academy' in the project.",
+        "instruction": "Push the project files to GitHub repository",
         "task_type": "general",
         "code": "",
         "result": "",
         "is_success": false,
-        "is_finished": true,
-        "assignee": "Alex",
-        "start_at": 1745448795.3969953,
-        "end_at": 1745448843.4583392
+        "is_finished": false,
+        "assignee": "David",
+        "start_at": 1745448795.3969953
       },
       "current_task_id": "1"
+    },
+    "Data Analyst": {
+      "1": {
+        "task_id": "1",
+        "dependent_task_ids": [],
+        "instruction": "Initialize git repository and prepare files for commit: git init, git add all files, create initial commit",
+        "task_type": "other",
+        "code": "",
+        "result": "",
+        "is_success": false,
+        "is_finished": false,
+        "assignee": "David",
+        "start_at": 1745449211.5506914
+      },
+      "current_task_id": "1",
+      "2": {
+        "task_id": "2",
+        "dependent_task_ids": [
+          "1"
+        ],
+        "instruction": "Configure remote repository and push files to GitHub: add remote origin, push to main branch",
+        "task_type": "other",
+        "code": "",
+        "result": "",
+        "is_success": false,
+        "is_finished": false,
+        "assignee": "David"
+      }
     }
   },
   "gallery_last_file": {},
@@ -26,17 +53,21 @@
     "5": 1,
     "6": 1,
     "7": 1,
-    "8": 1
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 0
   },
   "preview_servers": {
     "f0b86620-868b-4b1e-a5e6-61a3dbcd1613": {
       "role": "Alex",
-      "port": 5174,
+      "port": 5173,
       "subdomain": "smile-academy-opwp7-04z8i-cd1613",
       "server": "c29447bf-1c06-48cc-946e-0d83744054f8",
       "cmd": "cd /data/chats/04z8i/workspace/react_template && pnpm i && pnpm run dev",
       "timeline_index": 2,
-      "status": "success",
+      "status": "initializing",
       "logs": []
     }
   },
